@@ -1,0 +1,139 @@
+*{
+font-family: "Lucida Sans", sans-serif;
+    font-size: 20px;
+
+}
+
+
+
+
+manifacturer_brand{
+    margin-bottom: 2%;
+    background-color: brown;
+    color:white;
+    font-size: 35px;
+    font-weight: bold;
+    display: block;
+
+}
+
+include,equip,co_emissions,engine,fuel_consumption,include,retail_price_before_taxes,detail_econ_info,retail_price,model,amount,exec_equip,descr{
+    display:block
+
+}
+main_characteristics{
+    font-size: 25px;
+    display: block;
+    margin-bottom: 5%;
+}
+    main_characteristics:before{
+        content: "main characteriscs";
+        color: brown;
+        font-weight: bold;
+}
+engine:before{
+    content:"Κινητηρας:";
+    font-weight: bold;
+
+
+}
+co_emissions:before{
+    content:"Εκπομπές CO2 :";
+    font-weight: bold;
+
+
+}
+equipment:before{
+    content:"Στοιχεια Βασικου εξοπλισμου:";
+    color:brown;
+    font-weight: bold;
+
+}
+
+equip{
+    font-size: 15px;
+}
+executive_equip{
+    margin-bottom: 10%;
+}
+
+
+
+executive_equip:before{
+    content:"extras:";
+    color:brown;
+    font-weight: bold;
+    display: block;
+    margin-top: 3%;
+
+}
+offer_include:before{
+    content:"H προσφορα περιλαμβανει:";
+    font-weight: bold;
+    color:brown;
+    display: block;
+    margin-top: 3%;
+
+}
+include{
+    font-weight: 15px;
+    margin-top: 1%;
+}
+descr{
+    color: darkred;
+}
+fuel_consumption:before{
+    content:"Καταναλωση καυσιμου:";
+    font-weight: bold;
+
+
+}
+economic_info_leasing::before{
+    content:"Oικονομικα:";
+    color: brown;
+    display: block;
+    padding-bottom: 3%;
+    font-weight: bold;
+}
+monthly_leasing:before{
+    content:"Μηνιαιο μισθωμα:";
+    font-weight: bold;
+
+}
+retail_price:before{
+    content:"Λιανικη τιμή:";
+    font-weight: bold;
+
+
+
+}
+retail_price_before_taxes:before{
+    content:"Λιανικη τιμη με ΦΠΑ:";
+    font-weight: bold;
+
+
+
+}
+amount:before{
+    content:"προκαταβολη:";
+    font-weight: bold;
+
+
+}
+
+equip{
+    margin-top: 1%;
+    font-size:15px;
+
+
+}
+economic_info_leasing{
+    margin: 5%;
+    border: outset;
+    text-align: center;
+    margin-left:40%;
+    display: block;
+    width: 21%;
+    text-align: center;
+
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE HOTEL [
+<!ELEMENT HOTEL (ROOM_LIST+, HOTEL_OFFERS*)>
+<!ATTLIST HOTEL HOTEL_NAME CDATA #REQUIRED
+                    HOTEL_STARS CDATA #REQUIRED>
+    <!ELEMENT HOTEL_OFFERS (OFFER*)>
+    <!ELEMENT OFFER (#PCDATA|TIME)*>
+    <!ATTLIST OFFER ROOM_ID CDATA #REQUIRED
+                    PRICE CDATA #REQUIRED>
+    <!ELEMENT TIME (#PCDATA)>
+
+    <!ELEMENT ROOM_LIST (ROOM_NAME,ROOM_SPACE,R00M_BED_NUM,ROOM_VIEW+,ROOM_COMFORT+,PERIOD_PRICE)>
+    <!ATTLIST ROOM_LIST ROOMID ID #REQUIRED>
+    <!ELEMENT ROOM_NAME (#PCDATA)>
+    <!ATTLIST  ROOM_NAME SUITE CDATA #IMPLIED
+              FLOOR CDATA #IMPLIED
+              WIFI   (yes|no) "yes">
+    <!ELEMENT ROOM_SPACE (#PCDATA)>
+    <!ATTLIST ROOM_SPACE PEOPLE (1|2|3|4) #REQUIRED >
+    <!ELEMENT R00M_BED_NUM (SINGLE_BEDS?,DOUBLE_BEDS?,KING_SIZE_BEDS?,SOFA_BEDS?)>
+    <!ELEMENT SINGLE_BEDS (#PCDATA) >
+    <!ATTLIST SINGLE_BEDS SINGLE CDATA #IMPLIED >
+    <!ELEMENT DOUBLE_BEDS (#PCDATA) >
+    <!ATTLIST DOUBLE_BEDS DOUBLE CDATA #IMPLIED >
+    <!ELEMENT KING_SIZE_BEDS (#PCDATA) >
+    <!ATTLIST KING_SIZE_BEDS KING CDATA #IMPLIED >
+    <!ELEMENT SOFA_BEDS (#PCDATA) >
+    <!ATTLIST SOFA_BEDS SOFA CDATA #IMPLIED >
+    <!ELEMENT ROOM_VIEW (#PCDATA)>
+    <!ELEMENT ROOM_COMFORT (#PCDATA)>
+    <!ATTLIST ROOM_COMFORT FEE  (fee|nofee) #REQUIRED
+                            COMFORT_NAME CDATA #REQUIRED >
+    <!ELEMENT PERIOD_PRICE (#PCDATA)>
+    <!ATTLIST PERIOD_PRICE TIME (LOW|MEDIUM|HIGH) #REQUIRED>
+]>
+    <HOTEL HOTEL_NAME="PRIAMOS" HOTEL_STARS="4">
+        <ROOM_LIST ROOMID="X1">
+                <ROOM_NAME WIFI="yes" FLOOR="2">Κοκκινο δωματιο</ROOM_NAME>
+                <ROOM_SPACE PEOPLE="3">ειναι για 3 ατομα </ROOM_SPACE>
+                <R00M_BED_NUM>
+                    <SINGLE_BEDS SINGLE="1">παρεχει 1 μονο κρεβατι</SINGLE_BEDS>
+                    <DOUBLE_BEDS DOUBLE="1">παρεχει 1 διπλο κρεβατι</DOUBLE_BEDS>
+                    <SOFA_BEDS SOFA="1">παρεχει 1 κρεβατι-καναπες</SOFA_BEDS>
+                </R00M_BED_NUM>
+                <ROOM_VIEW>θαλασσα</ROOM_VIEW>
+                <ROOM_COMFORT FEE="fee" COMFORT_NAME="JACUZI">το δωματιο παρεχει τζακουζι με χρεωση</ROOM_COMFORT>
+                <PERIOD_PRICE TIME="MEDIUM">Ιανουαριος</PERIOD_PRICE>
+
+
+        </ROOM_LIST>
+
+        <ROOM_LIST ROOMID="X2">
+            <ROOM_NAME WIFI="yes" FLOOR="3">Μπλε δωματιο</ROOM_NAME>
+            <ROOM_SPACE PEOPLE="2">ειναι για 2 ατομα</ROOM_SPACE>
+            <R00M_BED_NUM>
+
+                <KING_SIZE_BEDS KING="1">παρεχει 1 υπερδιπλο κρεβατι</KING_SIZE_BEDS>
+            </R00M_BED_NUM>
+            <ROOM_VIEW>βουνο</ROOM_VIEW>
+            <ROOM_COMFORT FEE="nofee" COMFORT_NAME="JACUZI">παρεχει δωρεαν τζακουζι</ROOM_COMFORT>
+            <PERIOD_PRICE TIME="MEDIUM">Μαρτιος</PERIOD_PRICE>
+
+
+    </ROOM_LIST>
+    <HOTEL_OFFERS >
+        <OFFER ROOM_ID="e25" PRICE="300$">300$ 1 εβδομαδα με πρωινο
+            <TIME>απο ιανουαριο ως αρχες μαρτη</TIME>
+        </OFFER>
+    </HOTEL_OFFERS>
+
+    </HOTEL>
+
+
+
+    <!-- 3) Παραδειγμα ενος μη εγκυρου xml συμφωνα με το DTD
+
+    <HOTEL HOTEL_NAME="PRIAMOS" HOTEL_STARS="4">
+        <ROOM_LIST >
+                <ROOM_SPACE >ειναι για 3 ατομα </ROOM_SPACE>
+                <R00M_BED_NUM>
+                    <SINGLE_BEDS SINGLE="1">παρεχει 1 μονο κρεβατι</SINGLE_BEDS>
+                    <DOUBLE_BEDS DOUBLE="1">παρεχει 1 διπλο κρεβατι</DOUBLE_BEDS>
+                    <SOFA_BEDS SOFA="1">παρεχει 1 κρεβατι-καναπες</SOFA_BEDS>
+                </R00M_BED_NUM>
+                <ROOM_VIEW>θαλασσα</ROOM_VIEW>
+                <ROOM_COMFORT FEE="fee" COMFORT_NAME="JACUZI">το δωματιο παρεχει τζακουζι με χρεωση</ROOM_COMFORT>
+                <PERIOD_PRICE TIME="MEDIUM">Ιανουαριος</PERIOD_PRICE>
+
+
+        </ROOM_LIST>
+
+    <HOTEL_OFFERS >
+        <OFFER >300$ 1 εβδομαδα με πρωινο
+            <TIME>απο ιανουαριο ως αρχες μαρτη</TIME>
+        </OFFER>
+    </HOTEL_OFFERS>
+
+
+        </HOTEL>
+
+
+    -->
+
+    <!--  δεν ειναι εγκυρο διοτι δεν υπαρχουν αρκετα required attributes και επισης λειπει το room name συνεπως θα παρουσιασει προβλημα και εκει -->

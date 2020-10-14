@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+
+
+<xs:element name="cars_to_rent" >
+    <xs:complexType>
+    <xs:sequence>
+
+    <xs:element name="car" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+        <xs:attribute name="carID" type="xs:ID" use="required"></xs:attribute>
+    </xs:complexType>
+<xs:sequence>
+    <xs:element name="manifacturer_brand" type="xs:string" >
+        <xs:complexType mixed="true">
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+            <xs:element name="model" type="xs:string"></xs:element>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="main_characteristics" type="xs:string">
+        <xs:complexType >
+            <xs:sequence>
+            <xs:element name="engine" type="xs:string"></xs:element>
+            <xs:element name="co_emissions" type="xs:string">
+                <xs:complexType>
+                    <xs:sequence>
+                <xs:attribute name="em_unit" use="required" type="xs:string" value="gcCO2/km"></xs:attribute>
+                <xs:attribute name="mixed_cycle" type="xs:string" use="optional" ></xs:attribute>
+                </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="fuel_consumption" type="xs:string">
+                <xs:complexType>
+                    <xs:sequence>
+                <xs:attribute name="unit_fuel" type="xs:string" use="required"></xs:attribute>
+                <xs:attribute name="mixed_cycle" type="xs:string" use="optional"></xs:attribute>
+                    </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+            </xs:complexType>
+    </xs:element>
+    <xs:element name="equipment">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element name="basic_equipment">
+                    <xs:complexType>
+
+                        <xs:attribute name="equipID" type="xs:ID" use="required"></xs:attribute>
+            <xs:sequence>
+                <xs:element name="equip" type="xs:string" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attribute name="equipID" type="xs:ID" use="required"></xs:attribute>
+                </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            </xs:complexType>
+
+            </xs:element>
+            <xs:element name="executive_equip" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="exec_equip" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:attribute name="execID" type="xs:ID" use="required"></xs:attribute>
+                    </xs:complexType>
+
+                    </xs:element>
+                </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="offer_include">
+        <xs:complexType>
+            <xs:sequence>
+            <xs:element name="include" type="xs:string" minOccurs="0" maxOccur="unbounded"></xs:element>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="economic_info_leasing">
+        <xs:complexType >
+            <xs:sequence>
+            <xs:element name="monthly_leasing" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType mixed="true" >
+                    <xs:sequence>
+
+                <xs:attribute name="leasing_unit" type="xs:string" use="required"></xs:attribute>
+                <xs:attribute name="without_tax" type="xs:boolean" use="required">
+                    <xs:simpleType name="values">
+                        <xs:restriction base="xs:string">
+                        <xs:enumeration value="true"/>
+                        <xs:enumeration value="false"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="tax" type="xs:string" use="optional">
+                </xs:attribute>
+            </xs:sequence>
+            <xs:sequence>
+
+                <xs:element name="payment_in_advance" >
+                    <xs:complexType mixed="true">
+                    <xs:sequence>
+                     <xs:element name="amount" minOccurs="1" maxOccurs="unbounded" value="string">
+                    <xs:attribute name="without_tax" type="xs:boolean" use="required">
+                        <xs:simpleType name="values">
+                        <xs:restriction base="xs:string">
+                        <xs:enumeration value="true"/>
+                        <xs:enumeration value="false"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                    </xs:attribute>
+                <xs:sequence>
+                    <xs:attribute name="payment_unit" type="xs:string" use="required"></xs:attribute>
+                    <xs:attribute name="tax" type="xs:string" use="optional">
+                    </xs:attribute>
+                </xs:sequence>
+
+            </xs:element>
+        </xs:sequence>
+            <sequense>
+            <xs:element name="descr" minOccur="0" maxOccur="1" type="xs:string"></xs:element>
+        </sequense>
+        </xs:complexType>
+            </xs:element>
+            <xs:element name="retail_price" type="xs:string">
+                <xs:complexType>
+                    <xs:attribute name="retail_unit" use="required"></xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="retail_price_before_taxes" type="xs:string">
+                <xs:complexType>
+                    <xs:attribute name="retail_bef_tax_unix" type="xs:string" use="required"></xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="detail_econ_info" type="xs:string">
+            </xs:element>
+
+    <xs:element name="extra_car_info" type="xs:string">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:attribute name="color" type="xs:string" use="required"></xs:attribute>
+            <xs:attribute name="mini_model_description"  type="xs:string" use="optional"></xs:attribute>
+        </xs:sequence>
+</xs:complexType>
+        </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+        </xs:element>
+        </xs:complexType>
+    </xs:sequence>
+
+        </xs:sequence>
+    </xs:element>
+        </xs:complexType>
+        </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+        </xs:element>
+
+
+
+
+
+
+</xs:schema>
